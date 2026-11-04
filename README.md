@@ -15,7 +15,7 @@ The project presents four Python-generated visualisations examining hourly consu
 
 ## Composite Visualisation
 
-figures/module2/composite.png 
+![Composite Visualisation](figures/module2/composite.png)
 
 The composite contains four charts:
 - **Chart A:** Hourly electricity consumption and PV generation.
