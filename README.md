@@ -5,7 +5,7 @@ building in Porto (Gomes, Pinto & Vale, 2022; [Zenodo 6778782](https://doi.org/1
 **Question:** *When and where is energy consumed in this building, and how well does on-site PV generation line up
 with that rhythm of consumption?*
 
-![Composite visualisation](figures/module2/composite.pdf)
+![Composite visualisation](figures/module2/composite.png)
 
 ## Key messages
 
