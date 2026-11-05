@@ -34,11 +34,13 @@ import pandas as pd
 # File locations
 # --------------------------------------------------------------------------- #
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_PATH = os.path.normpath(
+# Primary location: <repository root>/data/dataset.xlsx (works from any working directory)
+DEFAULT_PATH = os.path.normpath(os.path.join(HERE, "..", "data", "dataset.xlsx"))
+_LOCAL_COPY = os.path.normpath(
     os.path.join(HERE, "..", "..", "3. INTRODUCTION TO DATA SCIENCE", "dataset.xlsx")
 )
-if not os.path.exists(DEFAULT_PATH):           # fallback when the repository is moved
-    DEFAULT_PATH = os.path.join(HERE, "..", "data", "dataset.xlsx")
+if not os.path.exists(DEFAULT_PATH) and os.path.exists(_LOCAL_COPY):
+    DEFAULT_PATH = _LOCAL_COPY                 # fallback for the original coursework folder
 
 INTERVALS_PER_DAY = 288          # 24 hours x 12 five-minute intervals
 INTERVAL_HOURS = 5 / 60          # interval length in hours (for W -> Wh)
@@ -59,6 +61,12 @@ CACHE_DIR = os.path.join(HERE, "cache")   # pickle cache so the ~40 s Excel read
 @lru_cache(maxsize=None)
 def _excel(path: str = DEFAULT_PATH) -> pd.ExcelFile:
     """Open the workbook once (cached) because the file is large."""
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"Dataset not found at {path}\n"
+            "Download dataset.xlsx from https://doi.org/10.5281/zenodo.6778782 "
+            "and place it in the data/ folder of this repository."
+        )
     return pd.ExcelFile(path)
 
 

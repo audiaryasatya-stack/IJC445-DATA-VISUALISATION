@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Pickle cache created on first run
+code/cache/
+
+# Dataset (download from Zenodo, see README)
+data/*.xlsx
+
+.DS_Store

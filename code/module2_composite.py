@@ -27,7 +27,10 @@ Code flow
   4. Save the composite (PNG + PDF) and the quoted numbers (facts.json).
 
 All charts are produced programmatically; nothing is drawn by hand.
-Run:  python module2_composite.py
+Input : data/dataset.xlsx
+Output: figures/module2/composite.png, figures/module2/composite.pdf,
+        results/module2/facts.json
+Run (from the repository root):  python code/module2_composite.py
 """
 
 from __future__ import annotations
